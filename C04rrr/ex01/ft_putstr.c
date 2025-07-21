@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 11:34:35 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/21 14:43:07 by mosmond          ###   ########.fr       */
+/*   Created: 2025/07/15 18:14:29 by mosmond           #+#    #+#             */
+/*   Updated: 2025/07/18 08:22:45 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc __attribute__((unused)), char **argv)
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (argv[0][i])
+	while (str[i])
 	{
+		write(1, &str[i], 1);
 		i++;
 	}
-	write(1, argv[0], i);
-	write(1, "\n", 1);
-	return (0);
 }
+
+// int	main(void)
+// {
+// 	ft_putstr("coucou");
+// 	return (0);
+// }
