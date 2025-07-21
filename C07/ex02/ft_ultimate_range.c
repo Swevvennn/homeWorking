@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/21 16:44:58 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/21 18:43:47 by mosmond          ###   ########.fr       */
+/*   Created: 2025/07/21 17:58:49 by mosmond           #+#    #+#             */
+/*   Updated: 2025/07/21 18:56:51 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	*ft_range(int min, int max)
 	if (min >= max)
 		return (NULL);
 	ptr = (int *)malloc((max - min) * sizeof(int));
+	if (ptr == NULL)
+		return (NULL);
 	j = 0;
 	while (j < max - min)
 	{
@@ -30,21 +32,31 @@ int	*ft_range(int min, int max)
 	return (ptr);
 }
 
-// int	main(void)
-// {
-// 	int	n;
-// 	int	m;
-// 	int	*liste;
-// 	int	i;
+int	ft_ultimate_range(int **range, int min, int max)
+{
+	if (min >= max)
+	{
+		range[0] = NULL;
+		return (0);
+	}
+	*range = ft_range(min, max);
+	if (*range == NULL)
+		return (-1);
+	return (max - min);
+}
 
-// 	n = 0;
-// 	m = 10;
-// 	liste = ft_range(n, m);
-// 	i = 0;
-// 	while (i < m - n)
-// 	{
-// 		printf("%d", liste[i]);
-// 		i++;
-// 	}
-// 	return (0);
-// }
+int	main(void)
+{
+	int *range;
+	int i;
+	int	size;
+
+	i = 0;
+	size = ft_ultimate_range(&range, 10, 2);
+	while (i < size)
+	{
+		printf("%d", range[i]);
+		i++;
+	}
+	return (0);
+}
