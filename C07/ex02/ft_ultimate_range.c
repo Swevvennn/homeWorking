@@ -6,7 +6,7 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 17:58:49 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/21 18:56:51 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/22 08:17:11 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,18 @@ int	ft_ultimate_range(int **range, int min, int max)
 	return (max - min);
 }
 
-int	main(void)
-{
-	int *range;
-	int i;
-	int	size;
+// int	main(void)
+// {
+// 	int	*range;
+// 	int	i;
+// 	int	size;
 
-	i = 0;
-	size = ft_ultimate_range(&range, 10, 2);
-	while (i < size)
-	{
-		printf("%d", range[i]);
-		i++;
-	}
-	return (0);
-}
+// 	i = 0;
+// 	size = ft_ultimate_range(&range, 10, 2);
+// 	while (i < size)
+// 	{
+// 		printf("%d", range[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }
