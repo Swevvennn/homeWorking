@@ -6,7 +6,7 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 08:32:26 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/18 08:41:13 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/22 13:44:44 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_iterative_factorial(int nb)
 {
 	int	result;
 
-	if (nb <= 0)
+	if (nb < 0)
 		return (0);
 	result = 1;
 	while (nb > 0)
@@ -29,6 +29,6 @@ int	ft_iterative_factorial(int nb)
 
 // int	main(void)
 // {
-// 	printf("%d",ft_iterative_factorial(5));
+// 	printf("%d", ft_iterative_factorial(0));
 // 	return (0);
 // }
