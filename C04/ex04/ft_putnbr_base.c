@@ -6,7 +6,7 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 08:36:49 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/22 11:36:51 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/23 08:50:01 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,17 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 }
 
-
 // int	main(void)
 // {
-// 	ft_putnbr_base(255, "01");                // base 2 : attendu "0"
+// 	ft_putnbr_base(255, "01");
 // 	write(1, "\n", 1);
-// 	ft_putnbr_base(2147483647, "0123456789"); // max int, base 10 : "2147483647"
+// 	ft_putnbr_base(2147483647, "0123456789");
 // 	write(1, "\n", 1);
-// 	ft_putnbr_base(-2147483648, "0123456789"); // min int, base 10 : "-2147483648"
+// 	ft_putnbr_base(-2147483648, "0123456789");
 // 	write(1, "\n", 1);
-// 	ft_putnbr_base(123456789, "abcdefghijklmnopqrstuvwxyz"); // base 26 : "fvepmaz"
+// 	ft_putnbr_base(123456789, "abcdefghijklmnopqrstuvwxyz");
 // 	write(1, "\n", 1);
-// 	ft_putnbr_base(42, "poneyvif");         // base 8 : "nfi"
+// 	ft_putnbr_base(42, "poneyvif");
 // 	write(1, "\n", 1);
 // 	return (0);
 // }

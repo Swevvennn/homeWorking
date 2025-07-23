@@ -6,9 +6,11 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:09:32 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/16 08:27:10 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/18 08:22:21 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -21,3 +23,9 @@ int	ft_strlen(char *str)
 	}
 	return (i);
 }
+
+// int	main(void)
+// {
+// 	printf("%d",ft_strlen("coucou"));
+// 	return (0);
+// }

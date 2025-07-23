@@ -6,9 +6,11 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:14:29 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/16 15:21:47 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/18 08:22:45 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putstr(char *str)
 {
@@ -17,7 +19,13 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		write(1, str[i], 1);
+		write(1, &str[i], 1);
 		i++;
 	}
 }
+
+// int	main(void)
+// {
+// 	ft_putstr("coucou");
+// 	return (0);
+// }

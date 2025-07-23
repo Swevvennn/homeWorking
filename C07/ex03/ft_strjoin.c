@@ -6,7 +6,7 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 08:36:51 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/22 10:43:50 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/23 08:49:11 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (result);
 }
 
-int	main(void)
-{
-	char	*liste[] = {"caca", "coucou", "salut"};
-	char	*sep = ", ";
+// int	main(void)
+// {
+// 	char	*liste[] = {"caca", "coucou", "salut"};
+// 	char	*sep = ", ";
 
-	printf("%s", ft_strjoin(3, liste, sep));
-	return (0);
-}
+// 	printf("%s", ft_strjoin(3, liste, sep));
+// 	return (0);
+// }
