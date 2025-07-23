@@ -6,7 +6,7 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 08:36:51 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/23 08:49:11 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/23 14:35:49 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strcat(char *dest, char *src)
 		dest[i + j] = src[j];
 		j++;
 	}
-	dest[i + j] = 0;
+	dest[i + j] = '\0';
 	return (dest);
 }
 
@@ -55,21 +55,21 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	i = 0;
 	somme = 0;
 	lensep = ft_strlen(sep);
-	while (i < size)
-	{
-		somme += ft_strlen(strs[i]);
-		if (!(i == size -1))
-			somme += lensep;
+	while (strs[i])
 		i++;
-	}
+	if (i != size)
+		return (0);
+	i = 0;
+	while (i < size)
+		somme += ft_strlen(strs[i++]);
+	somme += lensep * (size - 1);
 	result = (char *)malloc(somme * sizeof(char));
 	i = 0;
 	while (i < size)
 	{
-		result = ft_strcat(result, strs[i]);
-		if (!(i == size -1))
+		result = ft_strcat(result, strs[i++]);
+		if (i != size)
 			result = ft_strcat(result, sep);
-		i++;
 	}
 	return (result);
 }
@@ -79,6 +79,6 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 // 	char	*liste[] = {"caca", "coucou", "salut"};
 // 	char	*sep = ", ";
 
-// 	printf("%s", ft_strjoin(3, liste, sep));
+// 	printf("%s", ft_strjoin(0, liste, sep));
 // 	return (0);
 // }

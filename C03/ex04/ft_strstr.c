@@ -6,7 +6,7 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 09:46:33 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/18 09:12:57 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/23 12:21:22 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ char	*ft_strstr(char *str, char *to_find)
 	return (0);
 }
 
-int	main(void)
-{
-	printf("%s \n", ft_strstr("abcdefghijklmnopqrstuvwxyz", "m"));
-	printf("%s \n", ft_strstr("abcdefghijklmnopqrstuvwxyz", "9"));
-	printf("%s \n", ft_strstr("abcdefghijklmnopqrstuvwxyz", "\0"));
-	return (0);
-}
+// int	main(void)
+// {
+// 	printf("%s \n", ft_strstr("abcdefghijklmnopqrstuvwxyz", "m"));
+// 	printf("%s \n", ft_strstr("abcdefghijklmnopqrstuvwxyz", "9"));
+// 	printf("%s \n", ft_strstr("abcdefghijklmnopqrstuvwxyz", "\0"));
+// 	return (0);
+// }

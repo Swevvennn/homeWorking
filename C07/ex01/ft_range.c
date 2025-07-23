@@ -6,7 +6,7 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 16:44:58 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/21 18:43:47 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/23 12:08:51 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	*ft_range(int min, int max)
 	if (min >= max)
 		return (NULL);
 	ptr = (int *)malloc((max - min) * sizeof(int));
+	if (ptr == NULL)
+		return (NULL);
 	j = 0;
 	while (j < max - min)
 	{

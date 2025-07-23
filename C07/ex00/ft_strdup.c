@@ -6,7 +6,7 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:13:02 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/22 09:54:54 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/23 12:09:52 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ char	*ft_strdup(char *src)
 	i = 0;
 	while (src[i])
 		i++;
-	ptr = (char *)malloc((i + 1) * sizeof(char));
+	ptr = (char *)malloc(i * sizeof(char));
 	j = 0;
 	while (src[j])
 	{
 		ptr[j] = src[j];
 		j++;
 	}
+	ptr[j] = 0;
 	return (ptr);
 }
 
