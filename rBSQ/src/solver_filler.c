@@ -6,28 +6,28 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:12:46 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/29 17:14:04 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/30 14:30:40 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes.h"
+#include "../includes/includes.h"
 
-int	ft_check(char **map, t_square square, t_map_info map_info)
+int	ft_check(t_map *map, t_square square, t_map_info map_info)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (map[y])
+	while (map->map[y])
 	{
 		x = 0;
-		while (map[y][x])
+		while (map->map[y][x])
 		{
 			if ((x <= square.x && square.x <= x + square.size - 1)
 				&& (y <= square.y && square.y <= y + square.size - 1))
 				;
 		{
-				if (map[y][x] == map_info.obstacle)
+				if (map->map[y][x] == map_info.obst)
 					return (0);
 			}
 			x++;
@@ -37,17 +37,17 @@ int	ft_check(char **map, t_square square, t_map_info map_info)
 	return (1);
 }
 
-struct s_square	ft_solver(char **map, t_map_info map_info)
+struct s_square	ft_solver(t_map *map, t_map_info map_info)
 {
 	t_square	solution;
 	t_square	current;
 
 	current.size = 0;
 	current.y = 0;
-	while (current.y <= map_info.height - current.size + 1)
+	while (current.y <= map->line - current.size + 1)
 	{
 		current.x = 0;
-		while (current.x <= map_info.width[0] - current.size + 1)
+		while (current.x <= map->col - current.size + 1)
 		{
 			while (ft_check(map, current, map_info) == 1)
 			{
@@ -63,22 +63,21 @@ struct s_square	ft_solver(char **map, t_map_info map_info)
 	return (solution);
 }
 
-void	ft_fill_square(char **map, t_square square, t_map_info map_info)
+void	ft_fill_square(t_map *map, t_square square, t_map_info map_info)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (map[y])
+	while (map->map[y])
 	{
 		x = 0;
-		while (map[y][x])
+		while (map->map[y][x])
 		{
 			if ((x <= square.x && square.x <= x + square.size - 1)
 				&& (y <= square.y && square.y <= y + square.size - 1))
-				;
-		{
-				map[y][x] = map_info.full;
+			{
+				map->map[y][x] = map_info.full;
 			}
 			x++;
 		}
@@ -86,18 +85,18 @@ void	ft_fill_square(char **map, t_square square, t_map_info map_info)
 	}
 }
 
-void	ft_print_map(char **map, t_map_info map_info)
+void	ft_print_map(t_map *map)
 {
 	int	i;
 	int	j;
 
 	i = 1;
 	j = 0;
-	while (i < map_info.height)
+	while (i < map->line)
 	{
 		j = 0;
-		while (j < map_info.width[1])
-			write(1, &map[i][j++], 1);
+		while (j < map->line)
+			write(1, &map->map[i][j++], 1);
 		i++;
 		write(1, "\n", 1);
 	}

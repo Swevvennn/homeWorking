@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 09:36:06 by rdestruh          #+#    #+#             */
-/*   Updated: 2025/07/29 17:06:10 by mosmond          ###   ########.fr       */
+/*   Created: 2025/07/30 10:14:25 by mosmond           #+#    #+#             */
+/*   Updated: 2025/07/30 10:41:15 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes.h"
+#include "../includes/includes.h"
 
-t_map_info	*param_filler(char *first_line)
+struct s_map_info	*ft_param_filler(char *first_line)
 {
 	t_map_info	*params;
 

@@ -6,52 +6,101 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:25:01 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/29 17:25:19 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/30 13:55:30 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/includes.h"
+#include "../includes/includes.h"
 
-int	count_words(char *str, char *charset)
+int	ft_is_in_charset(char chr, char *charset)
 {
 	int	i;
-	int	words;
 
 	i = 0;
-	if (str[i] == '\0')
-		return (0);
-	words = 0;
-	while (str[i])
+	while (charset[i] != '\0')
 	{
-		i += ft_check_len(&str[i], charset);
-		i += ft_strlen(charset);
-		words++;
+		if (chr == charset[i])
+			return (1);
+		i++;
 	}
-	return (words);
+	return (0);
+}
+
+int	ft_word_counter(char *str, char *charset)
+{
+	int	word_count;
+	int	i;
+
+	word_count = 0;
+	i = 0;
+	while (ft_is_in_charset(str[i], charset) && str[i] != '\0')
+		i++;
+	while (str[i] != '\0')
+	{
+		while (!ft_is_in_charset(str[i], charset) && str[i] != '\0')
+			i++;
+		word_count++;
+		while (ft_is_in_charset(str[i], charset) && str[i] != '\0')
+			i++;
+	}
+	return (word_count);
+}
+
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	len;
+
+	i = 0;
+	len = 0;
+	while (src[len] != '\0')
+		len++;
+	if (size == 0)
+		return (len);
+	while (src[i] && i < size - 1)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (len);
+}
+
+char	**ft_split_main(char *str, char **result, char *charset)
+{
+	int	current_word;
+	int	i;
+	int	len;
+
+	current_word = 0;
+	i = 0;
+	len = 0;
+	while (ft_is_in_charset(str[i], charset) && str[i] != '\0')
+		i++;
+	while (str[i] != '\0')
+	{
+		while (!ft_is_in_charset(str[i + len], charset) && str[i + len] != '\0')
+			len++;
+		result[current_word] = malloc(sizeof(char) * (len + 1));
+		if (!result[current_word])
+			return (NULL);
+		ft_strlcpy(result[current_word], &str[i], len + 1);
+		current_word++;
+		i += len;
+		len = 0;
+		while (ft_is_in_charset(str[i], charset) && str[i] != '\0')
+			i++;
+	}
+	return (result);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	int		i;
-	int		j;
-	int		k;
-	int		size;
-	char	**split;
+	int		word_count;
+	char	**result;
 
-	i = 0;
-	j = 0;
-	split = malloc(sizeof(char *) * count_words(str, charset) + 1);
-	while (str[i])
-	{
-		k = 0;
-		size = ft_check_len(&str[i], charset);
-		split[j] = malloc(sizeof(char) * size + 1);
-		while (k < size)
-			split[j][k++] = str[i++];
-		split[j][k] = '\0';
-		j++;
-		i += ft_strlen(charset);
-	}
-	split[j] = NULL;
-	return (split);
+	word_count = ft_word_counter(str, charset);
+	result = malloc(sizeof(char *) * (word_count + 1));
+	result[word_count] = NULL;
+	return (ft_split_main(str, result, charset));
 }

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 14:55:02 by rdestruh          #+#    #+#             */
-/*   Updated: 2025/07/29 17:09:12 by mosmond          ###   ########.fr       */
+/*   Created: 2025/07/30 10:14:16 by mosmond           #+#    #+#             */
+/*   Updated: 2025/07/30 10:28:44 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes.h"
+#include "../includes/includes.h"
 
 int	ft_strlen(char *str)
 {

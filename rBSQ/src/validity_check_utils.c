@@ -6,13 +6,13 @@
 /*   By: mosmond <mosmond@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 17:13:19 by mosmond           #+#    #+#             */
-/*   Updated: 2025/07/29 17:27:55 by mosmond          ###   ########.fr       */
+/*   Updated: 2025/07/30 13:54:21 by mosmond          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes.h"
+#include "../includes/includes.h"
 
-char	*isolate_first_line(int fd)
+char	*ft_isolate_first_line(int fd)
 {
 	char	buffer[2];
 	char	*first_line;
@@ -39,7 +39,7 @@ char	*isolate_first_line(int fd)
 	return (first_line);
 }
 
-int	first_line_check(char *file_name, char **first_line)
+int	ft_first_line_check(char *file_name, char **first_line)
 {
 	int		fd;
 	char	empty;
@@ -47,9 +47,9 @@ int	first_line_check(char *file_name, char **first_line)
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		return (-1);
-	*first_line = isolate_first_line(fd);
+	*first_line = ft_isolate_first_line(fd);
 	empty = (*first_line)[ft_strlen(*first_line) - 4];
-	if (empty >= '0' && empty <= '9' || ft_strict_atoi(first_line))
+	if ((empty >= '0' && empty <= '9') || !ft_strict_atoi(*first_line))
 		return (-1);
 	else
 		return (fd);
@@ -62,11 +62,12 @@ char	**ft_file(int file_open, unsigned long mapsize)
 	char	**result;
 	char	*len;
 
-	len = isolate_first_line(file_open);
+	len = ft_isolate_first_line(file_open);
 	mapsize = mapsize * ft_strlen(len) + 1;
 	buff = (char *) malloc (sizeof(char) * mapsize);
 	ft_strcpy(buff, len);
-	bytestock = read(file_open, buff + ft_strlen(len), mapsize - ft_strlen(len));
+	bytestock = read(file_open, buff + ft_strlen(len),
+			mapsize - ft_strlen(len));
 	buff[bytestock] = '\0';
 	close(file_open);
 	result = ft_split(buff, "\n");
@@ -80,9 +81,9 @@ int	ft_map_check(char **map, char obstacle, char void_indic)
 	int	j;
 
 	i = 0;
-	j = 0;
 	while (map[i])
 	{
+		j = 0;
 		while (map[i][j])
 		{
 			if (map[i][j] != obstacle && map[i][j] != void_indic)
